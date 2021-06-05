@@ -2,7 +2,7 @@ import React from "react";
 import { MdGpsFixed, MdPlace } from "react-icons/md";
 const HomeScreenLeft = () => {
    return (
-      <div className="  md:w-auto flex flex-col overflow-x-hidden bg-purple100 h-screen">
+      <div className="  md:w-full  lex flex-col overflow-x-hidden bg-purple100  min-h-screen">
          <header className="flex relative justify-between p-4">
             <button className="px-4 py-2 shadow-md text-gray-50 bg-gray-500">
                Search for places

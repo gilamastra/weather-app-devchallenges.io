@@ -6,10 +6,11 @@ module.exports = {
    theme: {
       extend: {
          gridTemplateColumns: {
-            home: "30% auto",
+            home: "35% auto",
             footer: "200px minmax(900px, 1fr) 100px",
          },
          colors: {
+            purple000: "#585676;",
             purple100: "#1E213A",
             purple200: "#100E1D;",
             transparent: "transparent",

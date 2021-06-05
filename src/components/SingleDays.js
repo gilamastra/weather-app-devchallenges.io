@@ -2,7 +2,7 @@ import React from "react";
 
 const SingleDays = ({ dia }) => {
    return (
-      <div className="  w-full  max-w-13 flex flex-col justify-around items-center bg-purple100 h-72">
+      <div className="  w-full  max-w-13 flex flex-col max-h-60 justify-around items-center bg-purple100 h-72">
          <p className="text-gray-100 relative top-3  text-2xl">
             {dia}
          </p>

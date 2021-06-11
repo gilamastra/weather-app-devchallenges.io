@@ -6,7 +6,7 @@ import HomeScreenRight from "../components/HomeScreenRight";
 function HomeScreen() {
    return (
       <div className="grid md:grid-cols-home mx-auto  ">
-         <HomeScreenLeftMenu />
+         <HomeScreenLeft />
          <HomeScreenRight />
       </div>
    );

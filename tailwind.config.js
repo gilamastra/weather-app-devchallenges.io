@@ -13,6 +13,7 @@ module.exports = {
             purple000: "#585676;",
             purple100: "#1E213A",
             purple200: "#100E1D;",
+
             transparent: "transparent",
             current: "currentColor",
             black: colors.black,

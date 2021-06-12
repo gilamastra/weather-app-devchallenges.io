@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
-import { isTomorrow } from "date-fns";
+import { isTomorrow, formatISO } from "date-fns";
+import {} from "date-fns/esm";
 
 const SingleDays = ({ data, day }) => {
    const [date, setDate] = useState("");
@@ -9,21 +10,20 @@ const SingleDays = ({ data, day }) => {
    useEffect(() => {
       let tomorrow = new Date().getDate() + 1;
 
-      if (tomorrow.toString() === data.applicable_date.substr(8, 2)) {
-         setIsTomorrow(true);
-      }
-
       setDate(
          format(
             new Date(
                data.applicable_date.substr(0, 4),
-               data.applicable_date.substr(5, 2),
+               data.applicable_date.substr(5, 2) - 1,
                data.applicable_date.substr(8, 2)
             ),
             "E, d MMM	"
-         ) //=> 'Nov'
+         )
       );
-      console.log(date);
+      console.log(date, "DATE");
+      if (tomorrow.toString() === data.applicable_date.substr(8, 2)) {
+         setIsTomorrow(true);
+      }
    }, []);
 
    return (

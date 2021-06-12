@@ -35,7 +35,7 @@ const HomeScreenRight = ({ data }) => {
                         );
                      })}
             </div>
-            <h2 className="text-gray-200 text-left font-medium  py-6  text-4xl mt-6">
+            <h2 className="text-gray-200 text-left font-medium  py-5  text-3xl mt-6">
                Today’s Hightlights{" "}
             </h2>
             <div className=" w-full grid grid-cols-1 grid-rows-1 md:grid-rows-2 md:ml-4 lg:ml-0 md:grid-cols-2 gap-5 2xl:gap-10   place-items-center  ">

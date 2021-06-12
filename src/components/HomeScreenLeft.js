@@ -14,7 +14,6 @@ const HomeScreenLeft = ({ data }) => {
    const [weatherImage, setweatherImage] = useState("");
    const [isMenuOpen, setIsMenuOpen] = useState(false);
    const [date, setDate] = useState();
-   console.log(data, "data");
    useEffect(() => {
       setDate(format(new Date(), "eee, d MMM"));
    }, [data.data]);

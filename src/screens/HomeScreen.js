@@ -42,7 +42,7 @@ function HomeScreen() {
    return (
       <div className="grid md:grid-cols-home mx-auto bg-purple100  ">
          <HomeScreenLeft data={location} />
-         <HomeScreenRight />
+         <HomeScreenRight data={location} />
       </div>
    );
 }

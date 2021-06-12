@@ -1,8 +1,13 @@
-import React from "react";
+import { format } from "date-fns";
+import React, { useEffect, useState } from "react";
 import SingleDays from "./SingleDays";
 import SingleHightlights from "./SingleHightlights";
 
-const HomeScreenRight = () => {
+const HomeScreenRight = ({ data }) => {
+   const [date, setDate] = useState("");
+   useEffect(() => {
+      setDate(format(new Date(), "yyyy-MM-d"));
+   }, []);
    return (
       <div className="bg-purple200 ">
          <div className=" min-h-screen mx-auto   px-3 max-w-6xl  2xl:pt-10 2xl:px-32   ">
@@ -15,11 +20,20 @@ const HomeScreenRight = () => {
                </p>
             </header>
             <div className="grid  lg:grid-cols-3 xl:grid-cols-5 lg:grid-rows-1  mt-6 text-gray-400 grid-cols-2 grid-rows-3 xl:gap-3 place-items-center 2xl:gap-4 gap-9 ">
-               <SingleDays dia="Today" />
-               <SingleDays dia="Tomorrow" />
-               <SingleDays dia="7 Jun" />
-               <SingleDays dia="8 Jun" />
-               <SingleDays dia="9 Jun" />
+               {data.data &&
+                  data.data.consolidated_weather
+                     .filter((arrays) => {
+                        return arrays.applicable_date !== date;
+                     })
+                     .map((data) => {
+                        return (
+                           <SingleDays
+                              day={date}
+                              key={data.id}
+                              data={data}
+                           />
+                        );
+                     })}
             </div>
             <h2 className="text-gray-200 text-left font-medium  py-6  text-4xl mt-6">
                Today’s Hightlights{" "}

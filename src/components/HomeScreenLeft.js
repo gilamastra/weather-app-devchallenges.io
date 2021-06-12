@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdGpsFixed, MdPlace } from "react-icons/md";
+import axios from "axios";
 import HomeScreenLeftMenu from "./HomeScreenLeftMenu";
-const HomeScreenLeft = () => {
+import {
+   format,
+   formatDistance,
+   formatRelative,
+   subDays,
+} from "date-fns";
+
+//=> "Today is a Friday"
+const HomeScreenLeft = ({ data }) => {
+   const [weatherImage, setweatherImage] = useState("");
    const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [date, setDate] = useState();
+   console.log(data, "data");
+   useEffect(() => {
+      setDate(format(new Date(), "eee, d MMM"));
+   }, [data.data]);
 
    return (
       <div>
@@ -28,31 +43,42 @@ const HomeScreenLeft = () => {
                      <img
                         className="  opacity-10  w-bg   h-full    overflow-x-hidden  "
                         src="/images/Cloud-background.png"
-                        alt=""
+                        alt=" a"
                      />
                   </div>
-                  <img
-                     src="/images/Shower.png"
-                     className="absolute left-2/4 top-2/4 transform-translate  max-w-1 w-40 "
-                     alt=""
-                  />
+                  {data.data && (
+                     <img
+                        className="absolute left-2/4 top-2/4 transform-translate  max-w-1 w-40"
+                        src={`/images/${data.data.consolidated_weather[0].weather_state_name.replace(
+                           " ",
+                           ""
+                        )}.png`}
+                        alt=""
+                     />
+                  )}
                </div>
                <div className="flex -mt-9 flex-col justify-center items-center">
                   <h2 className="font-medium text-174 text-gray-300">
-                     15
+                     {data.data &&
+                        data.data.consolidated_weather[0].the_temp.toFixed(
+                           0
+                        )}
                      <span className="font-medium text-gray-400  text-5xl">
                         °C
                      </span>
                   </h2>
                   <h3 className="font-medium text-5xl text-gray-400">
-                     Shower
+                     {data.data &&
+                        data.data.consolidated_weather[0]
+                           .weather_state_name}
                   </h3>
                   <span className="mt-16 text-xl text-gray-400">
                      Today &nbsp;&nbsp;&nbsp;•{" "}
-                     <span>&nbsp;&nbsp;&nbsp; Frid, 5 Jun</span>
+                     <span>&nbsp;&nbsp;&nbsp; {date}</span>
                   </span>
                   <div className="flex justify-center mt-6 font-medium text-lg  text-gray-400 items-center">
-                     <MdPlace size="26" /> &nbsp;Helsinki
+                     <MdPlace size="26" /> &nbsp;
+                     {data.data && data.data.title}
                   </div>
                </div>
             </div>

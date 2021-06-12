@@ -10,7 +10,7 @@ const SingleHightlights = ({
 }) => {
    useEffect(() => {
       console.log(data);
-      if (data.data) {
+      if (data.data && data.data.consolidated_weather) {
          setSingleData(data.data.consolidated_weather[0]);
       }
    }, [data]);

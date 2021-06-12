@@ -12,14 +12,14 @@ function HomeScreen() {
          headers: {
             "Content-Type": "application/x-www-form-urlencoded",
          },
-         url: `/api/location/search/?lattlong=${latitude},${longitude}`,
+         url: `api/location/search/?lattlong=${latitude},${longitude}`,
       }).then((res) => {
          axios({
             method: "GET",
             headers: {
                "Content-Type": "application/x-www-form-urlencoded",
             },
-            url: `   /api/location/${res.data[0].woeid}/`,
+            url: `api/location/${res.data[0].woeid}/`,
          }).then((res) => {
             console.log(res);
             setLocation(res);

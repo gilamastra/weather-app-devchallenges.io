@@ -2,7 +2,7 @@
   "name": "wheater-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://www.metaweather.com",
+  "proxy":"https://www.metaweather.com/",
   "dependencies": {
     "@craco/craco": "^6.1.2",
     "@testing-library/jest-dom": "^5.11.4",

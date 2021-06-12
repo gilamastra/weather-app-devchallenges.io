@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { MdGpsFixed, MdPlace } from "react-icons/md";
-import axios from "axios";
 import HomeScreenLeftMenu from "./HomeScreenLeftMenu";
-import {
-   format,
-   formatDistance,
-   formatRelative,
-   subDays,
-} from "date-fns";
+import { format } from "date-fns";
 
 //=> "Today is a Friday"
 const HomeScreenLeft = ({ data }) => {
-   const [weatherImage, setweatherImage] = useState("");
    const [isMenuOpen, setIsMenuOpen] = useState(false);
    const [date, setDate] = useState();
    useEffect(() => {
@@ -45,7 +38,7 @@ const HomeScreenLeft = ({ data }) => {
                         alt=" a"
                      />
                   </div>
-                  {data.data && (
+                  {data.data.consolidated_weather && (
                      <img
                         className="absolute left-2/4 top-2/4 transform-translate  max-w-1 w-40"
                         src={`/images/${data.data.consolidated_weather[0].weather_state_name.replace(
@@ -58,7 +51,7 @@ const HomeScreenLeft = ({ data }) => {
                </div>
                <div className="flex -mt-9 flex-col justify-center items-center">
                   <h2 className="font-medium text-174 text-gray-300">
-                     {data.data &&
+                     {data.data.consolidated_weather &&
                         data.data.consolidated_weather[0].the_temp.toFixed(
                            0
                         )}
@@ -67,7 +60,7 @@ const HomeScreenLeft = ({ data }) => {
                      </span>
                   </h2>
                   <h3 className="font-medium text-5xl text-gray-400">
-                     {data.data &&
+                     {data.data.consolidated_weather &&
                         data.data.consolidated_weather[0]
                            .weather_state_name}
                   </h3>

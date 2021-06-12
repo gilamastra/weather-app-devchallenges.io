@@ -23,6 +23,7 @@ const HomeScreenRight = ({ data }) => {
                </header>
                <div className="grid  lg:grid-cols-3 xl:grid-cols-5 lg:grid-rows-1  mt-6 text-gray-400 grid-cols-2 grid-rows-3 xl:gap-3 place-items-center 2xl:gap-4 gap-9 ">
                   {data.data &&
+                     data.data.consolidated_weather &&
                      data.data.consolidated_weather
                         .filter((arrays) => {
                            return arrays.applicable_date !== date;
